@@ -192,6 +192,19 @@
       .join("");
   }
 
+  function renderCommunityStats() {
+    const memberCount = document.getElementById("member-count");
+    const partnerCount = document.getElementById("partner-count");
+
+    if (memberCount) {
+      memberCount.textContent = String(siteData.members.length || 0);
+    }
+
+    if (partnerCount) {
+      partnerCount.textContent = String(siteData.partners.length || 0);
+    }
+  }
+
   function renderMembers() {
     const container = document.getElementById("member-grid");
     const controls = document.getElementById("member-controls");
@@ -301,6 +314,7 @@
   renderPublicationPreview();
   renderHeroSlider();
   renderPublicationTable();
+  renderCommunityStats();
   renderMembers();
   renderPartners();
 })();
