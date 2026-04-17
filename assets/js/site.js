@@ -61,9 +61,31 @@
     });
 
     if (nav && activeNavLink) {
-      nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
-      nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
-      nav.style.setProperty("--nav-pill-opacity", "1");
+      const currentWidth = activeNavLink.offsetWidth;
+      const currentX = activeNavLink.offsetLeft;
+      const previousState = window.sessionStorage.getItem("taf-nav-pill");
+
+      if (previousState) {
+        try {
+          const parsed = JSON.parse(previousState);
+          nav.style.setProperty("--nav-pill-width", `${parsed.width}px`);
+          nav.style.setProperty("--nav-pill-x", `${parsed.x}px`);
+          nav.style.setProperty("--nav-pill-opacity", "1");
+
+          window.requestAnimationFrame(() => {
+            nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
+            nav.style.setProperty("--nav-pill-x", `${currentX}px`);
+          });
+        } catch {
+          nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
+          nav.style.setProperty("--nav-pill-x", `${currentX}px`);
+          nav.style.setProperty("--nav-pill-opacity", "1");
+        }
+      } else {
+        nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
+        nav.style.setProperty("--nav-pill-x", `${currentX}px`);
+        nav.style.setProperty("--nav-pill-opacity", "1");
+      }
     }
 
     document.querySelectorAll(".lang-switch a").forEach((link) => {
@@ -102,6 +124,31 @@
         window.setTimeout(() => {
           window.location.href = link.href;
         }, 220);
+      });
+    });
+  }
+
+  function enhanceSiteNav() {
+    const nav = document.querySelector(".site-nav");
+    const links = Array.from(document.querySelectorAll(".site-nav a"));
+    if (!nav || !links.length) {
+      return;
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const activeLink = nav.querySelector('a[aria-current="page"]');
+        if (!activeLink) {
+          return;
+        }
+
+        window.sessionStorage.setItem(
+          "taf-nav-pill",
+          JSON.stringify({
+            x: activeLink.offsetLeft,
+            width: activeLink.offsetWidth
+          })
+        );
       });
     });
   }
@@ -386,6 +433,7 @@
   }
 
   syncHeaderState();
+  enhanceSiteNav();
   enhanceLanguageSwitch();
   renderPublicationPreview();
   renderHeroSlider();
