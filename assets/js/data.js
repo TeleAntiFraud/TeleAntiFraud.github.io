@@ -43,49 +43,49 @@ window.TAF_SITE = {
       role: "Community Initiator",
       handle: "@JimmyMa99",
       url: "https://github.com/JimmyMa99",
-      avatar: "https://github.com/JimmyMa99.png"
+      avatar: "assets/img/members/JimmyMa99.png"
     },
     {
       name: "Control-derek",
       role: "Research Contributor",
       handle: "@Control-derek",
       url: "https://github.com/Control-derek",
-      avatar: "https://github.com/Control-derek.png"
+      avatar: "assets/img/members/Control-derek.png"
     },
     {
       name: "Yijin Zhou",
       role: "Research Contributor",
       handle: "@nev8rz",
       url: "https://github.com/nev8rz",
-      avatar: "https://github.com/nev8rz.png"
+      avatar: "assets/img/members/nev8rz.png"
     },
     {
       name: "YuXi Zhao",
       role: "Research Contributor",
       handle: "@chip-munkey",
       url: "https://github.com/chip-munkey",
-      avatar: "https://github.com/chip-munkey.png"
+      avatar: "assets/img/members/chip-munkey.png"
     },
     {
       name: "huhu389",
       role: "Research Contributor",
       handle: "@huhu389",
       url: "https://github.com/huhu389",
-      avatar: "https://github.com/huhu389.png"
+      avatar: "assets/img/members/huhu389.png"
     },
     {
       name: "muqovo",
       role: "Research Contributor",
       handle: "@muqovo",
       url: "https://github.com/muqovo",
-      avatar: "https://github.com/muqovo.png"
+      avatar: "assets/img/members/muqovo.png"
     },
     {
       name: "sci-m-wang",
       role: "Research Contributor",
       handle: "@sci-m-wang",
       url: "https://github.com/sci-m-wang",
-      avatar: "https://github.com/sci-m-wang.png"
+      avatar: "assets/img/members/sci-m-wang.png"
     }
   ],
   partners: [
