@@ -34,6 +34,13 @@
     return `${assetPrefix}${url}`;
   }
 
+  function slugifyPublication(item) {
+    const source = (item.shortTitle || item.title || "").toLowerCase();
+    return source
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
   function createResourceLink(label, href, className) {
     if (!href) {
       return "";
@@ -158,7 +165,7 @@
     container.innerHTML = publicationsSorted
       .map(
         (item) => `
-          <article class="publication-row">
+          <article class="publication-row" id="${slugifyPublication(item)}">
             <a class="publication-thumb" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
               <img src="${resolveAssetUrl(item.image)}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async" />
             </a>

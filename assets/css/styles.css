@@ -423,6 +423,11 @@ main {
   gap: 16px;
 }
 
+.slider-caption .text-link {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .slider-kicker {
   display: inline-flex;
   margin-bottom: 8px;
@@ -562,6 +567,15 @@ main {
 .news-item p {
   margin-top: 4px;
   color: var(--muted);
+}
+
+.news-link {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.news-link:hover {
+  color: var(--accent-strong);
 }
 
 .section-head,
