@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TeleAntiFraud Community</title>
+    <meta
+      name="description"
+      content="TeleAntiFraud Community is a telecom anti-fraud research initiative jointly built with People's Public Security University of China."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Source+Serif+4:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <span class="brand-text">TeleAntiFraud Community</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="community.html">Community</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Telecom anti-fraud research</p>
+            <h1>TeleAntiFraud research.</h1>
+            <p class="lead">
+              Jointly initiated with
+              <strong>People's Public Security University of China</strong>,
+              the community focuses on public datasets, model releases,
+              benchmarks, and reproducible research infrastructure for telecom
+              fraud detection.
+            </p>
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <strong>2</strong>
+                <span>Accepted papers</span>
+              </div>
+              <div class="metric-card">
+                <strong>2025-2026</strong>
+                <span>ACM MM and ACL</span>
+              </div>
+              <div class="metric-card">
+                <strong>Open</strong>
+                <span>Code, model, dataset</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="publications.html"
+                >Explore Publications</a
+              >
+              <a class="button button-secondary" href="community.html"
+                >View Community</a
+              >
+            </div>
+          </div>
+          <aside class="hero-panel">
+            <div class="hero-slider" id="hero-slider"></div>
+          </aside>
+        </section>
+
+        <section class="home-columns">
+          <article class="feature-card">
+            <p class="section-tag">Public Resources</p>
+            <h2>Open materials already available</h2>
+            <div class="resource-stack">
+              <a
+                class="resource-panel"
+                href="https://huggingface.co/datasets/JimmyMa99/TeleAntiFraud"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>TeleAntiFraud Dataset</strong>
+                <span>Public audio-text release on Hugging Face</span>
+              </a>
+              <a
+                class="resource-panel"
+                href="https://huggingface.co/JimmyMa99/AntiFraud-SFT"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>AntiFraud-SFT Model</strong>
+                <span>Released model checkpoint for public reuse</span>
+              </a>
+              <a class="resource-panel" href="publications.html">
+                <strong>Papers and Repositories</strong>
+                <span>GitHub, arXiv, model, and dataset entry points</span>
+              </a>
+            </div>
+          </article>
+          <article class="feature-card">
+            <p class="section-tag">Latest News</p>
+            <h2>Recent progress</h2>
+            <div class="news-list">
+              <article class="news-item">
+                <span class="news-date">2026</span>
+                <div>
+                  <strong>SAFE-QAQ accepted to ACL 2026</strong>
+                  <p>
+                    End-to-end slow-thinking audio-text fraud detection via
+                    reinforcement learning.
+                  </p>
+                </div>
+              </article>
+              <article class="news-item">
+                <span class="news-date">2025</span>
+                <div>
+                  <strong>TeleAntiFraud-28k accepted to ACM MM 2025</strong>
+                  <p>
+                    Public dataset and benchmark for telecom fraud detection.
+                  </p>
+                </div>
+              </article>
+              <article class="news-item">
+                <span class="news-date">Release</span>
+                <div>
+                  <strong>Dataset and model resources are public</strong>
+                  <p>
+                    Current releases include code, arXiv pages, Hugging Face
+                    model, and dataset access.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="home-publications">
+          <div class="section-head">
+            <div>
+              <p class="section-tag">Featured Publications</p>
+              <h2>Selected papers and associated resources</h2>
+            </div>
+            <a class="text-link" href="publications.html">View full list</a>
+          </div>
+          <div class="publication-preview" id="publication-preview"></div>
+        </section>
+
+        <section class="cta-band">
+          <div>
+            <p class="section-tag">Community</p>
+            <h2>Members and collaborating institutions</h2>
+            <p>
+              The community page is reserved for contributor profiles, GitHub
+              avatars, and partner logos.
+            </p>
+          </div>
+          <a class="button button-primary" href="community.html"
+            >Open Community Page</a
+          >
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>TeleAntiFraud Community</p>
+        <p>
+          Telecom anti-fraud research community, jointly initiated with
+          People's Public Security University of China.
+        </p>
+      </footer>
+    </div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
