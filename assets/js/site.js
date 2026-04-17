@@ -34,6 +34,38 @@
     return `${assetPrefix}${url}`;
   }
 
+  function normalizePath(value) {
+    if (!value) {
+      return "/";
+    }
+
+    return value
+      .replace(/\/index\.html$/, "/")
+      .replace(/index\.html$/, "/")
+      .replace(/\/+$/, "/");
+  }
+
+  function syncHeaderState() {
+    const currentPath = normalizePath(window.location.pathname);
+
+    document.querySelectorAll(".site-nav a").forEach((link) => {
+      const linkPath = normalizePath(new URL(link.getAttribute("href"), window.location.href).pathname);
+      if (linkPath === currentPath) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    document.querySelectorAll(".lang-switch a").forEach((link) => {
+      if (link.dataset.langLink === lang) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
   function slugifyPublication(item) {
     const source = (item.shortTitle || item.title || "").toLowerCase();
     return source
@@ -311,6 +343,7 @@
       .join("");
   }
 
+  syncHeaderState();
   renderPublicationPreview();
   renderHeroSlider();
   renderPublicationTable();
