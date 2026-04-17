@@ -110,7 +110,7 @@ window.TAF_SITE = {
       name: "Beihang University",
       type: "Academic Partner",
       url: "https://www.buaa.edu.cn/",
-      logo: "assets/img/buaa-logo.png",
+      logo: "assets/img/buaa-logo.jpg",
       logoText: "BUAA"
     }
   ]
