@@ -102,6 +102,13 @@ window.TAF_SITE = {
       url: "https://www.neu.edu.cn/",
       logo: "assets/img/neu-logo.jpg",
       logoText: "NEU"
+    },
+    {
+      name: "Beihang University",
+      type: "Academic Partner",
+      url: "https://www.buaa.edu.cn/",
+      logo: "assets/img/buaa-logo.png",
+      logoText: "BUAA"
     }
   ]
 };
