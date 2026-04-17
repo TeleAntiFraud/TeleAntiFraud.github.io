@@ -118,7 +118,7 @@ window.TAF_SITE = {
       name: "Peking University",
       type: "Academic Partner",
       url: "https://www.pku.edu.cn/",
-      logo: "",
+      logo: "assets/img/pku-icon.png",
       logoText: "PKU"
     }
   ]
