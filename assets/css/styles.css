@@ -186,7 +186,6 @@ body[data-lang="zh"] .lang-switch::before {
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--muted);
-  transition: color 180ms ease, transform 180ms ease;
 }
 
 .lang-switch a[aria-current="page"] {
@@ -196,6 +195,10 @@ body[data-lang="zh"] .lang-switch::before {
 
 .lang-switch a:not([aria-current="page"]) {
   color: rgba(24, 50, 45, 0.74);
+}
+
+.lang-switch.is-ready a {
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .site-nav a {
