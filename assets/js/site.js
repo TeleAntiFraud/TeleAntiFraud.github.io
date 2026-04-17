@@ -144,7 +144,7 @@
               <h3>${item.title}</h3>
               <p>${item.summary}</p>
             </div>
-            <div class="resource-list">
+            <div class="resource-list resource-grid">
               ${createResourceLink("GitHub", item.links.github, "github")}
               ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
               ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}
@@ -179,7 +179,7 @@
               <p>${item.summary}</p>
             </div>
             <div class="publication-side">
-              <div class="resource-list">
+              <div class="resource-list resource-grid">
                 ${createResourceLink("GitHub", item.links.github, "github")}
                 ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
                 ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}

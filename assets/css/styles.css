@@ -627,6 +627,16 @@ main {
   gap: 10px;
 }
 
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.resource-grid .resource-link {
+  width: 100%;
+}
+
 .meta-badge {
   display: inline-flex;
   padding: 7px 12px;
@@ -900,6 +910,10 @@ main {
   }
 
   .publication-row {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-grid {
     grid-template-columns: 1fr;
   }
 }
