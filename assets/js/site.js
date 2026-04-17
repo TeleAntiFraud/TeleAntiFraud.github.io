@@ -1,6 +1,25 @@
 (function () {
   const siteData = window.TAF_SITE || { publications: [], members: [], partners: [] };
   const publicationsSorted = [...siteData.publications].sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
+  const lang = document.body.dataset.lang || "en";
+  const i18n = {
+    en: {
+      paper: "Paper",
+      showAllMembers: (count) => `Show All Members (${count})`,
+      collapseMembers: "Collapse Members"
+    },
+    zh: {
+      paper: "论文",
+      showAllMembers: (count) => `展开全部成员（${count}）`,
+      collapseMembers: "收起成员"
+    }
+  };
+
+  function t(key, ...args) {
+    const table = i18n[lang] || i18n.en;
+    const value = table[key];
+    return typeof value === "function" ? value(...args) : value;
+  }
 
   function createResourceLink(label, href, className) {
     if (!href) {
@@ -30,7 +49,7 @@
             (item, index) => `
               <article class="slider-card ${index === 0 ? "is-active" : ""}" data-slide="${index}">
                 <a class="slider-media" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
-                  <img src="${item.image}" alt="${item.imageAlt || item.title}" />
+                  <img src="${item.image}" alt="${item.imageAlt || item.title}" decoding="async" fetchpriority="high" />
                 </a>
                 <div class="slider-caption">
                   <div>
@@ -38,7 +57,7 @@
                     <h3>${item.shortTitle || item.title}</h3>
                     <p>${item.title}</p>
                   </div>
-                  <a class="text-link" href="${item.links.arxiv}" target="_blank" rel="noreferrer">Open paper</a>
+                  <a class="text-link" href="${item.links.arxiv}" target="_blank" rel="noreferrer">${t("paper")}</a>
                 </div>
               </article>
             `
@@ -128,7 +147,7 @@
         (item) => `
           <article class="publication-row">
             <a class="publication-thumb" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
-              <img src="${item.image}" alt="${item.imageAlt || item.title}" />
+              <img src="${item.image}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async" />
             </a>
             <div class="publication-meta">
               <div class="meta-badges">
@@ -187,7 +206,7 @@
           (member) => `
             <a class="member-card" href="${member.url || "#"}" target="_blank" rel="noreferrer">
               <div class="member-card-base">
-                <img class="member-avatar" src="${member.avatar || ""}" alt="${member.name}" />
+                <img class="member-avatar" src="${member.avatar || ""}" alt="${member.name}" loading="lazy" decoding="async" />
                 <div class="member-summary">
                   <h3>${member.name}</h3>
                   <p>${member.handle || ""}</p>
@@ -213,7 +232,7 @@
 
       controls.innerHTML = `
         <button class="button button-secondary member-toggle" type="button">
-          ${expanded ? "Collapse Members" : `Show All Members (${siteData.members.length})`}
+          ${expanded ? t("collapseMembers") : t("showAllMembers", siteData.members.length)}
         </button>
       `;
 
@@ -248,7 +267,7 @@
           <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer">
             ${
               partner.logo
-                ? `<img class="partner-logo-image" src="${partner.logo}" alt="${partner.name}" />`
+                ? `<img class="partner-logo-image" src="${partner.logo}" alt="${partner.name}" loading="lazy" decoding="async" />`
                 : `<span class="partner-logo">${partner.logoText || "LOGO"}</span>`
             }
             <h3>${partner.name}</h3>

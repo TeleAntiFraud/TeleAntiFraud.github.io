@@ -93,7 +93,7 @@ window.TAF_SITE = {
       name: "People's Public Security University of China",
       type: "Academic Partner",
       url: "https://en.ppsuc.edu.cn/",
-      logo: "assets/img/ppsuc-logo.jpg",
+      logo: "assets/img/ppsuc-logo-optimized.jpg",
       logoText: "PPSUC"
     },
     {

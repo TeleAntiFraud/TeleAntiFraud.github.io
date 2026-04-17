@@ -94,6 +94,12 @@ h2 {
   box-shadow: 0 10px 28px rgba(24, 50, 45, 0.08);
 }
 
+.site-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -109,6 +115,28 @@ h2 {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.lang-switch a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+body[data-lang="en"] .lang-switch a[data-lang-link="en"],
+body[data-lang="zh"] .lang-switch a[data-lang-link="zh"] {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
 }
 
 .site-nav a {
@@ -734,11 +762,6 @@ main {
   background: linear-gradient(135deg, rgba(11, 110, 99, 0.14), rgba(207, 92, 54, 0.18));
 }
 
-.member-avatar-small {
-  width: 54px;
-  height: 54px;
-}
-
 .member-card-overlay {
   position: absolute;
   inset: 0;
@@ -879,6 +902,12 @@ main {
     padding: 16px;
   }
 
+  .site-header-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .brand {
     width: 100%;
   }
@@ -924,11 +953,12 @@ main {
   }
 
   .member-card-overlay {
-    position: static;
-    margin-top: 12px;
-    border-radius: 16px;
-    opacity: 1;
-    transform: none;
+    display: none;
+  }
+
+  .member-card-base {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .publication-row {

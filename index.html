@@ -16,17 +16,23 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body data-page="home">
+  <body data-page="home" data-lang="en">
     <div class="site-shell">
       <header class="site-header">
         <a class="brand" href="index.html">
           <span class="brand-text">TeleAntiFraud Community</span>
         </a>
-        <nav class="site-nav" aria-label="Main">
-          <a href="index.html">Home</a>
-          <a href="publications.html">Publications</a>
-          <a href="community.html">Community</a>
-        </nav>
+        <div class="site-header-right">
+          <nav class="site-nav" aria-label="Main">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="community.html">Community</a>
+          </nav>
+          <div class="lang-switch" aria-label="Language switcher">
+            <a href="index.html" data-lang-link="en">EN</a>
+            <a href="zh/index.html" data-lang-link="zh">中文</a>
+          </div>
+        </div>
       </header>
 
       <main>
@@ -156,7 +162,7 @@
             </p>
           </div>
           <a class="button button-primary" href="community.html"
-            >Open Community Page</a
+            >Community</a
           >
         </section>
       </main>
