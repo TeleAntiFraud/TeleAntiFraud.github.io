@@ -61,41 +61,12 @@
     });
 
     if (nav && activeNavLink) {
-      const currentWidth = activeNavLink.offsetWidth;
-      const currentX = activeNavLink.offsetLeft;
-      const previousState = window.sessionStorage.getItem("taf-nav-pill");
-      nav.classList.remove("is-ready");
-
-      if (previousState) {
-        try {
-          const parsed = JSON.parse(previousState);
-          nav.style.setProperty("--nav-pill-width", `${parsed.width}px`);
-          nav.style.setProperty("--nav-pill-x", `${parsed.x}px`);
-          nav.style.setProperty("--nav-pill-opacity", "1");
-
-          window.requestAnimationFrame(() => {
-            window.requestAnimationFrame(() => {
-              nav.classList.add("is-ready");
-              nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
-              nav.style.setProperty("--nav-pill-x", `${currentX}px`);
-            });
-          });
-        } catch {
-          nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
-          nav.style.setProperty("--nav-pill-x", `${currentX}px`);
-          nav.style.setProperty("--nav-pill-opacity", "1");
-          window.requestAnimationFrame(() => {
-            nav.classList.add("is-ready");
-          });
-        }
-      } else {
-        nav.style.setProperty("--nav-pill-width", `${currentWidth}px`);
-        nav.style.setProperty("--nav-pill-x", `${currentX}px`);
-        nav.style.setProperty("--nav-pill-opacity", "1");
-        window.requestAnimationFrame(() => {
-          nav.classList.add("is-ready");
-        });
-      }
+      nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
+      nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
+      nav.style.setProperty("--nav-pill-opacity", "1");
+      window.requestAnimationFrame(() => {
+        nav.classList.add("is-ready");
+      });
     }
 
     document.querySelectorAll(".lang-switch a").forEach((link) => {
@@ -151,19 +122,33 @@
     }
 
     links.forEach((link) => {
-      link.addEventListener("click", () => {
-        const activeLink = nav.querySelector('a[aria-current="page"]');
-        if (!activeLink) {
+      link.addEventListener("click", (event) => {
+        if (link.getAttribute("href")?.startsWith("mailto:")) {
           return;
         }
 
-        window.sessionStorage.setItem(
-          "taf-nav-pill",
-          JSON.stringify({
-            x: activeLink.offsetLeft,
-            width: activeLink.offsetWidth
-          })
-        );
+        const currentPath = normalizePath(window.location.pathname);
+        const targetPath = normalizePath(new URL(link.getAttribute("href"), window.location.href).pathname);
+        if (currentPath === targetPath) {
+          return;
+        }
+
+        event.preventDefault();
+
+        links.forEach((item) => {
+          if (item === link) {
+            item.setAttribute("aria-current", "page");
+          } else {
+            item.removeAttribute("aria-current");
+          }
+        });
+
+        nav.style.setProperty("--nav-pill-width", `${link.offsetWidth}px`);
+        nav.style.setProperty("--nav-pill-x", `${link.offsetLeft}px`);
+
+        window.setTimeout(() => {
+          window.location.href = link.href;
+        }, 220);
       });
     });
   }
