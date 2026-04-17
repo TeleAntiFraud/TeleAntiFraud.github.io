@@ -2,6 +2,7 @@
   const siteData = window.TAF_SITE || { publications: [], members: [], partners: [] };
   const publicationsSorted = [...siteData.publications].sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
   const lang = document.body.dataset.lang || "en";
+  const assetPrefix = document.body.dataset.assetPrefix || "";
   const i18n = {
     en: {
       paper: "Paper",
@@ -19,6 +20,18 @@
     const table = i18n[lang] || i18n.en;
     const value = table[key];
     return typeof value === "function" ? value(...args) : value;
+  }
+
+  function resolveAssetUrl(url) {
+    if (!url) {
+      return "";
+    }
+
+    if (/^(https?:)?\/\//.test(url) || url.startsWith("/") || url.startsWith("../")) {
+      return url;
+    }
+
+    return `${assetPrefix}${url}`;
   }
 
   function createResourceLink(label, href, className) {
@@ -49,7 +62,7 @@
             (item, index) => `
               <article class="slider-card ${index === 0 ? "is-active" : ""}" data-slide="${index}">
                 <a class="slider-media" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
-                  <img src="${item.image}" alt="${item.imageAlt || item.title}" decoding="async" fetchpriority="high" />
+                  <img src="${resolveAssetUrl(item.image)}" alt="${item.imageAlt || item.title}" decoding="async" fetchpriority="high" />
                 </a>
                 <div class="slider-caption">
                   <div>
@@ -147,7 +160,7 @@
         (item) => `
           <article class="publication-row">
             <a class="publication-thumb" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
-              <img src="${item.image}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async" />
+              <img src="${resolveAssetUrl(item.image)}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async" />
             </a>
             <div class="publication-meta">
               <div class="meta-badges">
@@ -267,7 +280,7 @@
           <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer">
             ${
               partner.logo
-                ? `<img class="partner-logo-image" src="${partner.logo}" alt="${partner.name}" loading="lazy" decoding="async" />`
+                ? `<img class="partner-logo-image" src="${resolveAssetUrl(partner.logo)}" alt="${partner.name}" loading="lazy" decoding="async" />`
                 : `<span class="partner-logo">${partner.logoText || "LOGO"}</span>`
             }
             <h3>${partner.name}</h3>
