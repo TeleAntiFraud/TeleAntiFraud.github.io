@@ -90,6 +90,7 @@ window.TAF_SITE = {
   ],
   partners: [
     {
+      slug: "ppsuc",
       name: "People's Public Security University of China",
       type: "Academic Partner",
       url: "https://en.ppsuc.edu.cn/",
@@ -97,6 +98,7 @@ window.TAF_SITE = {
       logoText: "PPSUC"
     },
     {
+      slug: "neu",
       name: "Northeastern University",
       type: "Academic Partner",
       url: "https://www.neu.edu.cn/",
@@ -104,6 +106,7 @@ window.TAF_SITE = {
       logoText: "NEU"
     },
     {
+      slug: "buaa",
       name: "Beihang University",
       type: "Academic Partner",
       url: "https://www.buaa.edu.cn/",

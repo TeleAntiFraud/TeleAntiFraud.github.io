@@ -226,7 +226,7 @@
           (member) => `
             <a class="member-card" href="${member.url || "#"}" target="_blank" rel="noreferrer">
               <div class="member-card-base">
-                <img class="member-avatar" src="${member.avatar || ""}" alt="${member.name}" loading="lazy" decoding="async" />
+                <img class="member-avatar" src="${resolveAssetUrl(member.avatar || "")}" alt="${member.name}" loading="lazy" decoding="async" />
                 <div class="member-summary">
                   <h3>${member.name}</h3>
                   <p>${member.handle || ""}</p>
@@ -284,7 +284,7 @@
     container.innerHTML = siteData.partners
       .map(
         (partner) => `
-          <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer">
+          <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer" data-partner="${partner.slug || ""}">
             ${
               partner.logo
                 ? `<img class="partner-logo-image" src="${resolveAssetUrl(partner.logo)}" alt="${partner.name}" loading="lazy" decoding="async" />`

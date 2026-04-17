@@ -835,6 +835,11 @@ main {
   padding: 8px;
 }
 
+.partner-card[data-partner="buaa"] .partner-logo-image {
+  background: #183d6b;
+  padding: 10px;
+}
+
 .empty-state {
   display: grid;
   align-content: center;
