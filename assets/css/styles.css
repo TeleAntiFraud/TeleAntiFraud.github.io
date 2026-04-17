@@ -135,8 +135,11 @@ h2 {
   content: "";
   background: var(--accent-soft);
   transform: translateX(var(--nav-pill-x, 0));
-  transition: transform 260ms ease, width 220ms ease, opacity 180ms ease;
   opacity: var(--nav-pill-opacity, 0);
+}
+
+.site-nav.is-ready::before {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), width 240ms ease, opacity 180ms ease;
 }
 
 .lang-switch {
