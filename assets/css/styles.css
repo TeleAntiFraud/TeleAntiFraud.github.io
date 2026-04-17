@@ -114,7 +114,7 @@ h2 {
 .site-nav {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  grid-auto-columns: 118px;
   gap: 8px;
 }
 
@@ -175,7 +175,7 @@ body[data-lang="zh"] .lang-switch::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 106px;
+  width: 118px;
   padding: 10px 14px;
   border-radius: 999px;
   color: var(--muted);
@@ -183,7 +183,7 @@ body[data-lang="zh"] .lang-switch::before {
 }
 
 .site-nav a[href^="mailto:"] {
-  min-width: 118px;
+  width: 118px;
 }
 
 .site-nav a[aria-current="page"] {
