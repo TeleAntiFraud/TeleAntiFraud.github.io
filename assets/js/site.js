@@ -66,6 +66,37 @@
     });
   }
 
+  function enhanceLanguageSwitch() {
+    const links = Array.from(document.querySelectorAll(".lang-switch a"));
+    if (!links.length) {
+      return;
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (link.dataset.langLink === document.body.dataset.lang) {
+          return;
+        }
+
+        event.preventDefault();
+        const nextLang = link.dataset.langLink || lang;
+        document.body.dataset.lang = nextLang;
+
+        links.forEach((item) => {
+          if (item === link) {
+            item.setAttribute("aria-current", "page");
+          } else {
+            item.removeAttribute("aria-current");
+          }
+        });
+
+        window.setTimeout(() => {
+          window.location.href = link.href;
+        }, 220);
+      });
+    });
+  }
+
   function slugifyPublication(item) {
     const source = (item.shortTitle || item.title || "").toLowerCase();
     return source
@@ -344,6 +375,7 @@
   }
 
   syncHeaderState();
+  enhanceLanguageSwitch();
   renderPublicationPreview();
   renderHeroSlider();
   renderPublicationTable();

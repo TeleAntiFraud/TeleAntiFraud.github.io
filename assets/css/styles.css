@@ -112,8 +112,9 @@ h2 {
 }
 
 .site-nav {
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
   gap: 8px;
 }
 
@@ -171,10 +172,18 @@ body[data-lang="zh"] .lang-switch::before {
 }
 
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 106px;
   padding: 10px 14px;
   border-radius: 999px;
   color: var(--muted);
   transition: 180ms ease;
+}
+
+.site-nav a[href^="mailto:"] {
+  min-width: 118px;
 }
 
 .site-nav a[aria-current="page"] {
