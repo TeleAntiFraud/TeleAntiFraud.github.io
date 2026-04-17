@@ -637,9 +637,11 @@ main {
 }
 
 .resource-row .resource-link {
-  width: 100%;
-  min-width: 168px;
+  width: 132px;
+  min-width: 132px;
   justify-content: center;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .meta-badge {
