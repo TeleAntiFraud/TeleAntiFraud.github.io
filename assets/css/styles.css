@@ -627,23 +627,6 @@ main {
   gap: 10px;
 }
 
-.resource-rows {
-  display: grid;
-  gap: 10px;
-}
-
-.resource-row {
-  display: flex;
-}
-
-.resource-row .resource-link {
-  width: 132px;
-  min-width: 132px;
-  justify-content: center;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
 .meta-badge {
   display: inline-flex;
   padding: 7px 12px;

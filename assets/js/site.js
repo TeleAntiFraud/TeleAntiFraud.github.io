@@ -53,22 +53,6 @@
     `;
   }
 
-  function createResourceRows(item) {
-    const links = [
-      createResourceLink("GitHub", item.links.github, "github"),
-      createResourceLink("arXiv", item.links.arxiv, "arxiv"),
-      createResourceLink("HF Model", item.links.hfModel, "hf-model"),
-      createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")
-    ]
-      .filter(Boolean);
-
-    return `
-      <div class="resource-rows">
-        ${links.map((link) => `<div class="resource-row">${link}</div>`).join("")}
-      </div>
-    `;
-  }
-
   function renderHeroSlider() {
     const container = document.getElementById("hero-slider");
     if (!container || !siteData.publications.length) {
@@ -160,7 +144,12 @@
               <h3>${item.title}</h3>
               <p>${item.summary}</p>
             </div>
-            ${createResourceRows(item)}
+            <div class="resource-list">
+              ${createResourceLink("GitHub", item.links.github, "github")}
+              ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
+              ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}
+              ${createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")}
+            </div>
           </article>
         `
       )
@@ -190,7 +179,12 @@
               <p>${item.summary}</p>
             </div>
             <div class="publication-side">
-              ${createResourceRows(item)}
+              <div class="resource-list">
+                ${createResourceLink("GitHub", item.links.github, "github")}
+                ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
+                ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}
+                ${createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")}
+              </div>
             </div>
           </article>
         `
