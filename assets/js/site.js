@@ -221,13 +221,28 @@
       </div>
     `;
 
+    const stage = container.querySelector(".slider-stage");
     const track = container.querySelector(".slider-track");
+    const slideNodes = Array.from(container.querySelectorAll(".slider-card"));
     const dotNodes = Array.from(container.querySelectorAll("[data-slide-index]"));
+
+    function syncSliderGeometry() {
+      if (!stage || !track || !slideNodes.length) {
+        return;
+      }
+
+      const slideWidth = stage.clientWidth;
+      slideNodes.forEach((slide) => {
+        slide.style.width = `${slideWidth}px`;
+      });
+      track.style.width = `${slideWidth * slideNodes.length}px`;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
 
     function setActiveSlide(index) {
       currentIndex = index;
-      if (track) {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      if (stage && track) {
+        track.style.transform = `translateX(-${currentIndex * stage.clientWidth}px)`;
       }
       dotNodes.forEach((node, nodeIndex) => {
         node.classList.toggle("is-active", nodeIndex === currentIndex);
@@ -239,6 +254,9 @@
         setActiveSlide(Number(button.getAttribute("data-slide-index")));
       });
     });
+
+    syncSliderGeometry();
+    window.addEventListener("resize", syncSliderGeometry);
 
     window.setInterval(() => {
       setActiveSlide((currentIndex + 1) % slides.length);
