@@ -61,12 +61,48 @@
     });
 
     if (nav && activeNavLink) {
-      nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
-      nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
-      nav.style.setProperty("--nav-pill-opacity", "1");
-      window.requestAnimationFrame(() => {
-        nav.classList.add("is-ready");
-      });
+      const transitionStateRaw = window.sessionStorage.getItem("taf-nav-transition");
+      let didRestoreTransition = false;
+
+      if (transitionStateRaw) {
+        try {
+          const transitionState = JSON.parse(transitionStateRaw);
+          const sourcePath = normalizePath(transitionState.sourcePath);
+          const targetPath = normalizePath(transitionState.targetPath);
+          const sourceLink = Array.from(nav.querySelectorAll("a")).find((link) => {
+            const linkPath = normalizePath(new URL(link.getAttribute("href"), window.location.href).pathname);
+            return linkPath === sourcePath;
+          });
+
+          if (sourceLink && targetPath === currentPath && sourcePath !== currentPath) {
+            nav.classList.remove("is-ready");
+            nav.style.setProperty("--nav-pill-width", `${sourceLink.offsetWidth}px`);
+            nav.style.setProperty("--nav-pill-x", `${sourceLink.offsetLeft}px`);
+            nav.style.setProperty("--nav-pill-opacity", "1");
+
+            window.requestAnimationFrame(() => {
+              window.requestAnimationFrame(() => {
+                nav.classList.add("is-ready");
+                nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
+                nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
+              });
+            });
+
+            didRestoreTransition = true;
+          }
+        } catch {}
+
+        window.sessionStorage.removeItem("taf-nav-transition");
+      }
+
+      if (!didRestoreTransition) {
+        nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
+        nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
+        nav.style.setProperty("--nav-pill-opacity", "1");
+        window.requestAnimationFrame(() => {
+          nav.classList.add("is-ready");
+        });
+      }
     }
 
     document.querySelectorAll(".lang-switch a").forEach((link) => {
@@ -142,6 +178,14 @@
             item.removeAttribute("aria-current");
           }
         });
+
+        window.sessionStorage.setItem(
+          "taf-nav-transition",
+          JSON.stringify({
+            sourcePath: currentPath,
+            targetPath
+          })
+        );
 
         nav.style.setProperty("--nav-pill-width", `${link.offsetWidth}px`);
         nav.style.setProperty("--nav-pill-x", `${link.offsetLeft}px`);
