@@ -112,6 +112,14 @@ window.TAF_SITE = {
       url: "https://www.buaa.edu.cn/",
       logo: "assets/img/buaa-logo.jpg",
       logoText: "BUAA"
+    },
+    {
+      slug: "pku",
+      name: "Peking University",
+      type: "Academic Partner",
+      url: "https://www.pku.edu.cn/",
+      logo: "",
+      logoText: "PKU"
     }
   ]
 };
