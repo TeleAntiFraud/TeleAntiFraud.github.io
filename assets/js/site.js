@@ -108,10 +108,15 @@
   }
 
   function enhanceLanguageSwitch() {
+    const switcher = document.querySelector(".lang-switch");
     const links = Array.from(document.querySelectorAll(".lang-switch a"));
-    if (!links.length) {
+    if (!switcher || !links.length) {
       return;
     }
+
+    window.requestAnimationFrame(() => {
+      switcher.classList.add("is-ready");
+    });
 
     links.forEach((link) => {
       link.addEventListener("click", (event) => {

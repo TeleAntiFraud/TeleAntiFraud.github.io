@@ -167,11 +167,14 @@ h2 {
   box-shadow:
     0 8px 18px rgba(11, 110, 99, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  transition: transform 260ms ease, background 220ms ease, box-shadow 220ms ease;
 }
 
 body[data-lang="zh"] .lang-switch::before {
   transform: translateX(100%);
+}
+
+.lang-switch.is-ready::before {
+  transition: transform 260ms ease, background 220ms ease, box-shadow 220ms ease;
 }
 
 .lang-switch a {
