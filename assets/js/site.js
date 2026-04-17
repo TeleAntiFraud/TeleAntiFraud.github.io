@@ -54,24 +54,17 @@
   }
 
   function createResourceRows(item) {
-    const primaryRow = [
+    const links = [
       createResourceLink("GitHub", item.links.github, "github"),
-      createResourceLink("arXiv", item.links.arxiv, "arxiv")
-    ]
-      .filter(Boolean)
-      .join("");
-
-    const secondaryRow = [
+      createResourceLink("arXiv", item.links.arxiv, "arxiv"),
       createResourceLink("HF Model", item.links.hfModel, "hf-model"),
       createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")
     ]
-      .filter(Boolean)
-      .join("");
+      .filter(Boolean);
 
     return `
       <div class="resource-rows">
-        ${primaryRow ? `<div class="resource-row">${primaryRow}</div>` : ""}
-        ${secondaryRow ? `<div class="resource-row">${secondaryRow}</div>` : ""}
+        ${links.map((link) => `<div class="resource-row">${link}</div>`).join("")}
       </div>
     `;
   }

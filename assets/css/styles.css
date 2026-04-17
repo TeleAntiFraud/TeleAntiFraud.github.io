@@ -634,8 +634,12 @@ main {
 
 .resource-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+}
+
+.resource-row .resource-link {
+  width: 100%;
+  min-width: 168px;
+  justify-content: center;
 }
 
 .meta-badge {
