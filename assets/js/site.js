@@ -53,6 +53,29 @@
     `;
   }
 
+  function createResourceRows(item) {
+    const primaryRow = [
+      createResourceLink("GitHub", item.links.github, "github"),
+      createResourceLink("arXiv", item.links.arxiv, "arxiv")
+    ]
+      .filter(Boolean)
+      .join("");
+
+    const secondaryRow = [
+      createResourceLink("HF Model", item.links.hfModel, "hf-model"),
+      createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")
+    ]
+      .filter(Boolean)
+      .join("");
+
+    return `
+      <div class="resource-rows">
+        ${primaryRow ? `<div class="resource-row">${primaryRow}</div>` : ""}
+        ${secondaryRow ? `<div class="resource-row">${secondaryRow}</div>` : ""}
+      </div>
+    `;
+  }
+
   function renderHeroSlider() {
     const container = document.getElementById("hero-slider");
     if (!container || !siteData.publications.length) {
@@ -144,12 +167,7 @@
               <h3>${item.title}</h3>
               <p>${item.summary}</p>
             </div>
-            <div class="resource-list resource-grid">
-              ${createResourceLink("GitHub", item.links.github, "github")}
-              ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
-              ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}
-              ${createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")}
-            </div>
+            ${createResourceRows(item)}
           </article>
         `
       )
@@ -179,12 +197,7 @@
               <p>${item.summary}</p>
             </div>
             <div class="publication-side">
-              <div class="resource-list resource-grid">
-                ${createResourceLink("GitHub", item.links.github, "github")}
-                ${createResourceLink("arXiv", item.links.arxiv, "arxiv")}
-                ${createResourceLink("HF Model", item.links.hfModel, "hf-model")}
-                ${createResourceLink("HF Dataset", item.links.hfDataset, "hf-dataset")}
-              </div>
+              ${createResourceRows(item)}
             </div>
           </article>
         `

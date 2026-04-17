@@ -627,16 +627,15 @@ main {
   gap: 10px;
 }
 
-.resource-grid {
+.resource-rows {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch;
-  justify-items: start;
+  gap: 10px;
 }
 
-.resource-grid .resource-link {
-  width: auto;
-  min-width: 0;
+.resource-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .meta-badge {
@@ -915,9 +914,6 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .resource-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 720px) {
