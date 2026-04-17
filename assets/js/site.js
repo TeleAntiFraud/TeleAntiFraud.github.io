@@ -47,15 +47,24 @@
 
   function syncHeaderState() {
     const currentPath = normalizePath(window.location.pathname);
+    const nav = document.querySelector(".site-nav");
+    let activeNavLink = null;
 
     document.querySelectorAll(".site-nav a").forEach((link) => {
       const linkPath = normalizePath(new URL(link.getAttribute("href"), window.location.href).pathname);
       if (linkPath === currentPath) {
         link.setAttribute("aria-current", "page");
+        activeNavLink = link;
       } else {
         link.removeAttribute("aria-current");
       }
     });
+
+    if (nav && activeNavLink) {
+      nav.style.setProperty("--nav-pill-width", `${activeNavLink.offsetWidth}px`);
+      nav.style.setProperty("--nav-pill-x", `${activeNavLink.offsetLeft}px`);
+      nav.style.setProperty("--nav-pill-opacity", "1");
+    }
 
     document.querySelectorAll(".lang-switch a").forEach((link) => {
       if (link.dataset.langLink === lang) {
@@ -127,10 +136,11 @@
 
     container.innerHTML = `
       <div class="slider-stage">
-        ${slides
-          .map(
-            (item, index) => `
-              <article class="slider-card ${index === 0 ? "is-active" : ""}" data-slide="${index}">
+        <div class="slider-track">
+          ${slides
+            .map(
+              (item, index) => `
+              <article class="slider-card" data-slide="${index}">
                 <a class="slider-media" href="${item.links.arxiv}" target="_blank" rel="noreferrer">
                   <img src="${resolveAssetUrl(item.image)}" alt="${item.imageAlt || item.title}" decoding="async" fetchpriority="high" />
                 </a>
@@ -144,8 +154,9 @@
                 </div>
               </article>
             `
-          )
-          .join("")}
+            )
+            .join("")}
+        </div>
       </div>
       <div class="slider-dots">
         ${slides
@@ -163,14 +174,14 @@
       </div>
     `;
 
-    const slideNodes = Array.from(container.querySelectorAll(".slider-card"));
+    const track = container.querySelector(".slider-track");
     const dotNodes = Array.from(container.querySelectorAll("[data-slide-index]"));
 
     function setActiveSlide(index) {
       currentIndex = index;
-      slideNodes.forEach((node, nodeIndex) => {
-        node.classList.toggle("is-active", nodeIndex === currentIndex);
-      });
+      if (track) {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
       dotNodes.forEach((node, nodeIndex) => {
         node.classList.toggle("is-active", nodeIndex === currentIndex);
       });
