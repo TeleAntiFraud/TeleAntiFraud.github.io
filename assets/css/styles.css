@@ -672,9 +672,11 @@ main {
 }
 
 .publication-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
   padding: 22px;
+  height: 100%;
 }
 
 .publication-card h3,
@@ -686,6 +688,7 @@ main {
 .publication-meta {
   display: grid;
   gap: 10px;
+  flex: 1 1 auto;
 }
 
 .meta-badges,
@@ -726,6 +729,11 @@ main {
 
 .resource-link span {
   line-height: 1;
+}
+
+.publication-card .resource-list {
+  margin-top: auto;
+  align-items: flex-end;
 }
 
 .resource-link.github {
