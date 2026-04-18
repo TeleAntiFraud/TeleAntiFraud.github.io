@@ -1,6 +1,11 @@
 (function () {
   const siteData = window.TAF_SITE || { publications: [], members: [], partners: [] };
-  const publicationsSorted = [...siteData.publications].sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
+  const comparePublications = (a, b) => {
+    const left = a.sortDate || a.year || "";
+    const right = b.sortDate || b.year || "";
+    return String(right).localeCompare(String(left));
+  };
+  const publicationsSorted = [...siteData.publications].sort(comparePublications);
   const lang = document.body.dataset.lang || "en";
   const assetPrefix = document.body.dataset.assetPrefix || "";
   const i18n = {
@@ -290,7 +295,7 @@
 
     container.innerHTML = siteData.publications
       .slice()
-      .sort((a, b) => Number(b.year || 0) - Number(a.year || 0))
+      .sort(comparePublications)
       .map(
         (item) => `
           <article class="publication-card">

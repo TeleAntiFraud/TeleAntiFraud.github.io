@@ -2,11 +2,31 @@ window.TAF_SITE = {
   publications: [
     {
       title:
+        "SAFE-QAQ: End-to-End Slow-Thinking Audio-Text Fraud Detection via Reinforcement Learning",
+      shortTitle: "SAFE-QAQ",
+      venue: "ACL 2026 Main Conference",
+      status: "Accepted",
+      year: "2026",
+      sortDate: "2026-04",
+      summary:
+        "An end-to-end framework for audio-text fraud detection with reinforcement learning, building on the TeleAntiFraud public dataset and released model resources.",
+      image: "assets/img/safeqaq-intro.png",
+      imageAlt: "SAFE-QAQ pipeline overview",
+      links: {
+        github: "https://github.com/Control-derek/SAFE-QAQ",
+        arxiv: "https://arxiv.org/abs/2601.01392",
+        hfModel: "",
+        hfDataset: ""
+      }
+    },
+    {
+      title:
         "TeleAntiFraud-28k: An Audio-Text Slow-Thinking Dataset for Telecom Fraud Detection",
       shortTitle: "TeleAntiFraud-28k",
       venue: "ACM MM 2025",
       status: "Accepted",
       year: "2025",
+      sortDate: "2025-06",
       summary:
         "The first open-source audio-text slow-thinking dataset designed for telecom fraud analysis, with public dataset release, benchmark resources, and an SFT model.",
       image: "assets/img/teleantifraud-framework.png",
@@ -20,18 +40,38 @@ window.TAF_SITE = {
     },
     {
       title:
-        "SAFE-QAQ: End-to-End Slow-Thinking Audio-Text Fraud Detection via Reinforcement Learning",
-      shortTitle: "SAFE-QAQ",
-      venue: "ACL 2026 Main Conference",
+        "Fraud-R1: A Multi-Round Benchmark for Assessing the Robustness of LLM Against Augmented Fraud and Phishing Inducements",
+      shortTitle: "Fraud-R1",
+      venue: "Findings of ACL 2025",
       status: "Accepted",
-      year: "2026",
+      year: "2025",
+      sortDate: "2025-04",
       summary:
-        "An end-to-end framework for audio-text fraud detection with reinforcement learning, building on the TeleAntiFraud public dataset and released model resources.",
-      image: "assets/img/safeqaq-intro.png",
-      imageAlt: "SAFE-QAQ pipeline overview",
+        "A multi-round benchmark designed to evaluate how large language models respond to augmented fraud and phishing inducements across more realistic attack settings.",
+      image: "assets/img/fraud-r1.png",
+      imageAlt: "Fraud-R1 paper figure",
       links: {
-        github: "https://github.com/Control-derek/SAFE-QAQ",
-        arxiv: "https://arxiv.org/abs/2601.01392",
+        github: "https://github.com/kaustpradalab/Fraud-R1",
+        arxiv: "https://arxiv.org/abs/2502.12904",
+        hfModel: "",
+        hfDataset: ""
+      }
+    },
+    {
+      title:
+        "AnnaAgent: Dynamic Evolution Agent System with Multi-Session Memory for Realistic Seeker Simulation",
+      shortTitle: "AnnaAgent",
+      venue: "Findings of ACL 2025",
+      status: "Accepted",
+      year: "2025",
+      sortDate: "2025-03",
+      summary:
+        "An agent system with dynamic evolution and multi-session memory for realistic seeker simulation, expanding the community's public resources around fraud-related human-agent interaction research.",
+      image: "assets/img/annaagent.png",
+      imageAlt: "AnnaAgent paper figure",
+      links: {
+        github: "https://github.com/sci-m-wang/AnnaAgent",
+        arxiv: "https://arxiv.org/abs/2604.11048",
         hfModel: "",
         hfDataset: ""
       }
