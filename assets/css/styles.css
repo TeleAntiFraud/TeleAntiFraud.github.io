@@ -706,9 +706,12 @@ main {
 }
 
 .resource-link {
+  min-width: 104px;
   padding: 0 16px;
   border: 1px solid transparent;
   font-size: 0.95rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .resource-link.github {
