@@ -357,11 +357,16 @@
 
   function renderCommunityStats() {
     const publicationCount = document.getElementById("publication-count");
+    const partnerCountHome = document.getElementById("partner-count-home");
     const memberCount = document.getElementById("member-count");
     const partnerCount = document.getElementById("partner-count");
 
     if (publicationCount) {
       publicationCount.textContent = String(siteData.publications.length || 0);
+    }
+
+    if (partnerCountHome) {
+      partnerCountHome.textContent = String(siteData.partners.length || 0);
     }
 
     if (memberCount) {
