@@ -152,6 +152,13 @@ window.TAF_SITE = {
       handle: "@xiaoluo333",
       url: "https://github.com/xiaoluo333",
       avatar: "assets/img/members/xiaoluo333.png"
+    },
+    {
+      name: "chouoftears",
+      role: "Research Contributor",
+      handle: "@chouoftears",
+      url: "https://github.com/chouoftears",
+      avatar: "assets/img/members/chouoftears.png"
     }
   ],
   partners: [
