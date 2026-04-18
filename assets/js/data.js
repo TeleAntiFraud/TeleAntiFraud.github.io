@@ -4,7 +4,7 @@ window.TAF_SITE = {
       title:
         "SAFE-QAQ: End-to-End Slow-Thinking Audio-Text Fraud Detection via Reinforcement Learning",
       shortTitle: "SAFE-QAQ",
-      venue: "ACL 2026 Main Conference",
+      venue: "ACL 2026 Main",
       status: "Accepted",
       year: "2026",
       sortDate: "2026-04",
