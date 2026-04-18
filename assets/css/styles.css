@@ -706,12 +706,26 @@ main {
 }
 
 .resource-link {
-  min-width: 104px;
-  padding: 0 16px;
+  width: 118px;
+  padding: 0 14px;
   border: 1px solid transparent;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   justify-content: center;
   text-align: center;
+  gap: 8px;
+  flex: 0 0 118px;
+  white-space: nowrap;
+}
+
+.resource-icon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.resource-link span {
+  line-height: 1;
 }
 
 .resource-link.github {

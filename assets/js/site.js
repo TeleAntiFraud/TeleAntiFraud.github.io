@@ -189,9 +189,27 @@
       return "";
     }
 
+    const iconMap = {
+      github: resolveAssetUrl("assets/img/github-fill.png"),
+      arxiv: resolveAssetUrl("assets/img/arxiv-icon.png"),
+      "hf-model": resolveAssetUrl("assets/img/huggingface.png"),
+      "hf-dataset": resolveAssetUrl("assets/img/huggingface.png")
+    };
+
+    const textMap = {
+      github: "GitHub",
+      arxiv: "arXiv",
+      "hf-model": "Model",
+      "hf-dataset": "Dataset"
+    };
+
+    const icon = iconMap[className];
+    const text = textMap[className] || label;
+
     return `
       <a class="resource-link ${className}" href="${href}" target="_blank" rel="noreferrer">
-        ${label}
+        ${icon ? `<img class="resource-icon" src="${icon}" alt="" aria-hidden="true" />` : ""}
+        <span>${text}</span>
       </a>
     `;
   }
