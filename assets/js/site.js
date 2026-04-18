@@ -356,8 +356,13 @@
   }
 
   function renderCommunityStats() {
+    const publicationCount = document.getElementById("publication-count");
     const memberCount = document.getElementById("member-count");
     const partnerCount = document.getElementById("partner-count");
+
+    if (publicationCount) {
+      publicationCount.textContent = String(siteData.publications.length || 0);
+    }
 
     if (memberCount) {
       memberCount.textContent = String(siteData.members.length || 0);

@@ -21,6 +21,25 @@ window.TAF_SITE = {
     },
     {
       title:
+        "A Systematic Analysis of the Impact of Persona Steering on LLM Capabilities",
+      shortTitle: "Persona Steering",
+      venue: "CogSci 2026",
+      status: "Accepted",
+      year: "2026",
+      sortDate: "2026-04",
+      summary:
+        "A systematic study of how persona steering changes underlying LLM capabilities across cognitive benchmarks, together with a dynamic persona routing strategy for query-adaptive control.",
+      image: "assets/img/persona-steering.png",
+      imageAlt: "Persona Steering paper figure",
+      links: {
+        github: "",
+        arxiv: "https://arxiv.org/abs/2604.11048",
+        hfModel: "",
+        hfDataset: ""
+      }
+    },
+    {
+      title:
         "TeleAntiFraud-28k: An Audio-Text Slow-Thinking Dataset for Telecom Fraud Detection",
       shortTitle: "TeleAntiFraud-28k",
       venue: "ACM MM 2025",
@@ -71,7 +90,7 @@ window.TAF_SITE = {
       imageAlt: "AnnaAgent paper figure",
       links: {
         github: "https://github.com/sci-m-wang/AnnaAgent",
-        arxiv: "https://arxiv.org/abs/2604.11048",
+        arxiv: "https://arxiv.org/abs/2506.00551",
         hfModel: "",
         hfDataset: ""
       }
@@ -126,6 +145,13 @@ window.TAF_SITE = {
       handle: "@sci-m-wang",
       url: "https://github.com/sci-m-wang",
       avatar: "assets/img/members/sci-m-wang.png"
+    },
+    {
+      name: "xiaoluo333",
+      role: "Research Contributor",
+      handle: "@xiaoluo333",
+      url: "https://github.com/xiaoluo333",
+      avatar: "assets/img/members/xiaoluo333.png"
     }
   ],
   partners: [
@@ -160,6 +186,14 @@ window.TAF_SITE = {
       url: "https://www.pku.edu.cn/",
       logo: "assets/img/pku-icon.png",
       logoText: "PKU"
+    },
+    {
+      slug: "tsinghua",
+      name: "Tsinghua University",
+      type: "Academic Partner",
+      url: "https://www.tsinghua.edu.cn/",
+      logo: "assets/img/tsinghua-logo.svg",
+      logoText: "THU"
     }
   ]
 };
