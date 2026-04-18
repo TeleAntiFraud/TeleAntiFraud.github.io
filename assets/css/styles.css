@@ -698,14 +698,32 @@ main {
   gap: 10px;
 }
 
+.meta-badges {
+  flex-wrap: nowrap;
+}
+
 .meta-badge {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 7px 12px;
   border-radius: 999px;
   background: rgba(11, 110, 99, 0.1);
   color: var(--accent-strong);
   font-size: 0.82rem;
   font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.meta-badges .meta-badge:first-child {
+  width: 170px;
+  flex: 0 0 170px;
+}
+
+.meta-badges .meta-badge:last-child {
+  width: 96px;
+  flex: 0 0 96px;
 }
 
 .resource-link {
