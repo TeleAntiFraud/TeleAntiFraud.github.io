@@ -721,11 +721,6 @@ main {
   flex: 0 0 170px;
 }
 
-.meta-badges .meta-badge:last-child {
-  width: 96px;
-  flex: 0 0 96px;
-}
-
 .resource-link {
   width: 118px;
   padding: 0 14px;

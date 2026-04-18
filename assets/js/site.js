@@ -320,7 +320,6 @@
             <div class="publication-meta">
               <div class="meta-badges">
                 <span class="meta-badge">${item.venue}</span>
-                <span class="meta-badge">${item.status}</span>
               </div>
               <h3>${item.title}</h3>
               <p>${item.summary}</p>
@@ -353,7 +352,6 @@
             <div class="publication-meta">
               <div class="meta-badges">
                 <span class="meta-badge">${item.venue}</span>
-                <span class="meta-badge">${item.year}</span>
               </div>
               <h3>${item.shortTitle || item.title}</h3>
               <p class="publication-title-line">${item.title}</p>
