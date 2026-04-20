@@ -229,7 +229,7 @@ window.TAF_SITE = {
       category: "company",
       type: "Industry Partner",
       url: "https://www.huashunxinan.net/",
-      logo: "assets/img/huashunxinan-logo.png",
+      logo: "assets/img/huashunxinan-logo-20260420.png",
       logoText: "HSXA"
     },
     {
