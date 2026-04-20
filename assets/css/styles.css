@@ -824,6 +824,17 @@ main {
   gap: 16px;
 }
 
+.partner-group {
+  display: grid;
+  gap: 14px;
+}
+
+.partner-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
 .community-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }

@@ -12,12 +12,16 @@
     en: {
       paper: "Paper",
       showAllMembers: (count) => `Show All Members (${count})`,
-      collapseMembers: "Collapse Members"
+      collapseMembers: "Collapse Members",
+      schools: "Collaborating schools",
+      companies: "Collaborating companies"
     },
     zh: {
       paper: "论文",
       showAllMembers: (count) => `展开全部成员（${count}）`,
-      collapseMembers: "收起成员"
+      collapseMembers: "收起成员",
+      schools: "合作高校",
+      companies: "合作企业"
     }
   };
 
@@ -483,20 +487,39 @@
       return;
     }
 
-    container.innerHTML = siteData.partners
-      .map(
-        (partner) => `
-          <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer" data-partner="${partner.slug || ""}">
-            ${
-              partner.logo
-                ? `<img class="partner-logo-image" src="${resolveAssetUrl(partner.logo)}" alt="${partner.name}" loading="lazy" decoding="async" />`
-                : `<span class="partner-logo">${partner.logoText || "LOGO"}</span>`
-            }
-            <h3>${partner.name}</h3>
-            <p>${partner.type || ""}</p>
-          </a>
-        `
-      )
+    const groups = [
+      { key: "school", title: t("schools") },
+      { key: "company", title: t("companies") }
+    ];
+
+    const renderPartnerCard = (partner) => `
+      <a class="partner-card" href="${partner.url || "#"}" target="_blank" rel="noreferrer" data-partner="${partner.slug || ""}">
+        ${
+          partner.logo
+            ? `<img class="partner-logo-image" src="${resolveAssetUrl(partner.logo)}" alt="${partner.name}" loading="lazy" decoding="async" />`
+            : `<span class="partner-logo">${partner.logoText || "LOGO"}</span>`
+        }
+        <h3>${partner.name}</h3>
+        <p>${partner.type || ""}</p>
+      </a>
+    `;
+
+    container.innerHTML = groups
+      .map((group) => {
+        const partners = siteData.partners.filter((partner) => (partner.category || "school") === group.key);
+        if (!partners.length) {
+          return "";
+        }
+
+        return `
+          <section class="partner-group">
+            <h3 class="partner-group-title">${group.title}</h3>
+            <div class="partner-grid">
+              ${partners.map(renderPartnerCard).join("")}
+            </div>
+          </section>
+        `;
+      })
       .join("");
   }
 

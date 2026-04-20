@@ -165,6 +165,7 @@ window.TAF_SITE = {
     {
       slug: "ppsuc",
       name: "People's Public Security University of China",
+      category: "school",
       type: "Academic Partner",
       url: "https://en.ppsuc.edu.cn/",
       logo: "assets/img/ppsuc-logo-optimized.jpg",
@@ -173,6 +174,7 @@ window.TAF_SITE = {
     {
       slug: "neu",
       name: "Northeastern University",
+      category: "school",
       type: "Academic Partner",
       url: "https://www.neu.edu.cn/",
       logo: "assets/img/neu-logo.jpg",
@@ -181,6 +183,7 @@ window.TAF_SITE = {
     {
       slug: "buaa",
       name: "Beihang University",
+      category: "school",
       type: "Academic Partner",
       url: "https://www.buaa.edu.cn/",
       logo: "assets/img/buaa-logo.jpg",
@@ -189,6 +192,7 @@ window.TAF_SITE = {
     {
       slug: "pku",
       name: "Peking University",
+      category: "school",
       type: "Academic Partner",
       url: "https://www.pku.edu.cn/",
       logo: "assets/img/pku-icon.png",
@@ -197,6 +201,7 @@ window.TAF_SITE = {
     {
       slug: "tsinghua",
       name: "Tsinghua University",
+      category: "school",
       type: "Academic Partner",
       url: "https://www.tsinghua.edu.cn/",
       logo: "assets/img/tsinghua-logo.svg",
@@ -205,10 +210,20 @@ window.TAF_SITE = {
     {
       slug: "bupt",
       name: "Beijing University of Posts and Telecommunications",
+      category: "school",
       type: "Academic Partner",
       url: "https://www.bupt.edu.cn/",
       logo: "assets/img/bupt-logo.png",
       logoText: "BUPT"
+    },
+    {
+      slug: "huashunxinan",
+      name: "Huashunxinan",
+      category: "company",
+      type: "Industry Partner",
+      url: "https://www.huashunxinan.net/",
+      logo: "assets/img/huashunxinan-logo.svg",
+      logoText: "HSXA"
     }
   ]
 };
