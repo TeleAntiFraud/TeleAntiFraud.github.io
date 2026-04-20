@@ -13,8 +13,8 @@
       paper: "Paper",
       showAllMembers: (count) => `Show All Members (${count})`,
       collapseMembers: "Collapse Members",
-      schools: "Collaborating schools",
-      companies: "Collaborating companies"
+      schools: "Schools",
+      companies: "Companies"
     },
     zh: {
       paper: "论文",
@@ -23,6 +23,16 @@
       schools: "合作高校",
       companies: "合作企业"
     }
+  };
+
+  const partnerNameZh = {
+    ppsuc: "中国人民公安大学",
+    neu: "东北大学",
+    buaa: "北京航空航天大学",
+    pku: "北京大学",
+    tsinghua: "清华大学",
+    bupt: "北京邮电大学",
+    huashunxinan: "华顺信安"
   };
 
   function t(key, ...args) {
@@ -515,7 +525,15 @@
           <section class="partner-group">
             <h3 class="partner-group-title">${group.title}</h3>
             <div class="partner-grid">
-              ${partners.map(renderPartnerCard).join("")}
+              ${partners
+                .map((partner) => {
+                  const localizedPartner =
+                    lang === "zh" && partnerNameZh[partner.slug]
+                      ? { ...partner, name: partnerNameZh[partner.slug] }
+                      : partner;
+                  return renderPartnerCard(localizedPartner);
+                })
+                .join("")}
             </div>
           </section>
         `;
