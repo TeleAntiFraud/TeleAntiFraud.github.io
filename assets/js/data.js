@@ -159,6 +159,13 @@ window.TAF_SITE = {
       handle: "@chouoftears",
       url: "https://github.com/chouoftears",
       avatar: "assets/img/members/chouoftears.png"
+    },
+    {
+      name: "ATang0729",
+      role: "Research Contributor",
+      handle: "@ATang0729",
+      url: "https://github.com/ATang0729",
+      avatar: "assets/img/members/ATang0729.png"
     }
   ],
   partners: [
@@ -222,8 +229,17 @@ window.TAF_SITE = {
       category: "company",
       type: "Industry Partner",
       url: "https://www.huashunxinan.net/",
-      logo: "assets/img/huashunxinan-logo.svg",
+      logo: "assets/img/huashunxinan-logo.png",
       logoText: "HSXA"
+    },
+    {
+      slug: "scut",
+      name: "South China University of Technology",
+      category: "school",
+      type: "Academic Partner",
+      url: "https://www.scut.edu.cn/",
+      logo: "assets/img/scut-logo.png",
+      logoText: "SCUT"
     }
   ]
 };

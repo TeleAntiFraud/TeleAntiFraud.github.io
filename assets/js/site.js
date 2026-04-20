@@ -32,7 +32,8 @@
     pku: "北京大学",
     tsinghua: "清华大学",
     bupt: "北京邮电大学",
-    huashunxinan: "华顺信安"
+    huashunxinan: "华顺信安",
+    scut: "华南理工大学"
   };
 
   function t(key, ...args) {
