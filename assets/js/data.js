@@ -201,6 +201,14 @@ window.TAF_SITE = {
       url: "https://www.tsinghua.edu.cn/",
       logo: "assets/img/tsinghua-logo.svg",
       logoText: "THU"
+    },
+    {
+      slug: "bupt",
+      name: "Beijing University of Posts and Telecommunications",
+      type: "Academic Partner",
+      url: "https://www.bupt.edu.cn/",
+      logo: "assets/img/bupt-logo.png",
+      logoText: "BUPT"
     }
   ]
 };
