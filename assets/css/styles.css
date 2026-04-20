@@ -827,6 +827,10 @@ main {
 .partner-group {
   display: grid;
   gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.68);
 }
 
 .partner-group-title {
@@ -848,6 +852,10 @@ main {
 .empty-state {
   min-height: 196px;
   padding: 22px;
+}
+
+.partner-group .partner-card {
+  min-height: 172px;
 }
 
 .member-card {
