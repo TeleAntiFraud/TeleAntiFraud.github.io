@@ -238,7 +238,7 @@ window.TAF_SITE = {
       category: "school",
       type: "Academic Partner",
       url: "https://www.scut.edu.cn/",
-      logo: "assets/img/scut-logo.png",
+      logo: "assets/img/scut-logo-20260420.png",
       logoText: "SCUT"
     }
   ]
