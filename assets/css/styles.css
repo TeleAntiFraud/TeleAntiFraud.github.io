@@ -847,6 +847,14 @@ main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+#partner-grid.partner-grid {
+  grid-template-columns: 1fr;
+}
+
+.partner-group .partner-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .member-card,
 .partner-card,
 .empty-state {
