@@ -225,7 +225,7 @@ window.TAF_SITE = {
     },
     {
       slug: "huashunxinan",
-      name: "Huashun Xinan",
+      name: "Huashun Xin'an",
       category: "company",
       type: "Industry Partner",
       url: "https://www.huashunxinan.net/",
