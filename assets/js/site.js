@@ -499,8 +499,7 @@
     }
 
     const groups = [
-      { key: "school", title: t("schools") },
-      { key: "company", title: t("companies") }
+      { key: "school", title: t("schools") }
     ];
 
     const renderPartnerCard = (partner) => `
